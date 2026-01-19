@@ -620,17 +620,6 @@ Sei libero di:
 
 ---
 
-## 👤 Autore
-
-Template creato e mantenuto dalla community di studenti UNINETTUNO.
-
-**Contatti:**
-- 📧 Email: [inserisci email]
-- 🐙 GitHub: [inserisci username]
-- 💼 LinkedIn: [inserisci profilo]
-
----
-
 ## 🙏 Ringraziamenti
 
 - **[@xilofono01](https://t.me/xilofono01)** - Collega tesista che ha condiviso il template del frontespizio su Telegram
