@@ -1,0 +1,47 @@
+---
+description: Regole UNINETTUNO per tesi TRIENNALE in italiano, con termini tecnici inglesi ammessi
+globs:
+  - "**/*.tex"
+alwaysApply: true
+---
+
+# Lingua e stile
+- Italiano; termini tecnici inglesi ammessi con **definizione alla prima occorrenza**.
+- Terza persona (preferibilmente passiva); evitare “io/noi”.
+- Frasi chiare, non eccessivamente lunghe.
+
+# Struttura minima (ordine)
+1. **Frontespizio** (usare modello UNINETTUNO).
+2. **Ringraziamenti** *(opzionale, in corsivo)*.
+3. **Indice** (fino a 3 livelli numerati, con pagine).
+4. **Sommario** *(non numerato, 2–3 pagine, in italiano)*: tema, ipotesi/obiettivi, risultati attesi, contributo, struttura. In aggiunta, inserire un **Summary (abstract in inglese)** con contenuto coerente al Sommario italiano.
+5. **Introduzione (Cap. 1)**: contesto, problema, metodologie.
+6. **Eventuali capitoli introduttivi** (strumenti/nozioni mirate).
+7. **Capitoli principali** (sviluppo, analisi, soluzione).
+8. **Conclusioni e sviluppi futuri** (capitolo numerato).
+9. **Bibliografia** (unico capitolo, stile IEEE).
+10. **Appendici** A, B, C … *(se necessarie)*.
+
+# Formattazione base
+- A4; margini **2.5 cm** su tutti i lati.
+- Testo **Times New Roman 12 pt**, **interlinea 1.5**, **giustificato**.
+- Titoli: capitoli **16 pt** grassetto; sottocapitoli **14 pt**; sotto-sottocapitoli **13 pt**.
+- Numerazione pagine **in arabo** a piè di pagina.
+
+# Figure e tabelle
+- Centrate, proporzioni integre, qualità adeguata.
+- Didascalia per capitolo: **Figura X.Y:** Descrizione *(“Figura” e numeri in grassetto)*.
+- Ogni figura è **citata e discussa** nel testo.
+- Se derivate da altre fonti, **citare la fonte**; rispettare copyright.
+
+# Citazioni e bibliografia
+- Riferimenti **[n]** nel testo.
+- Bibliografia in stile **IEEE**, ~**20** citazioni appropriate.
+- Per siti web indicare la **data di consultazione**.
+
+# Dimensioni attese
+- **50–70 pagine** (triennale; eventuali eccezioni da concordare col relatore).
+
+# Coerenza Sommari IT/EN
+- Ogni modifica al Sommario in italiano deve essere apportata anche al Summary in inglese, mantenendo allineati contenuti, struttura e numeri.
+

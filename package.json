@@ -1,0 +1,43 @@
+{
+  "name": "template-latex-tesi-uninettuno",
+  "version": "1.0.0",
+  "description": "Template LaTeX professionale per tesi UNINETTUNO con build automatico, regole Cursor AI e GitHub Actions",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon --watch chapters --watch config --watch *.tex --ext tex --exec \"npm run build:quick\"",
+    "build": "node build.js build",
+    "build:quick": "node build.js quick",
+    "build:simple": "npm run clean && npm run compile && npm run compile && npm run compile",
+    "compile": "pdflatex -interaction=nonstopmode tesi.tex",
+    "clean": "node build.js clean",
+    "clean:all": "npm run clean && rm -f tesi.pdf",
+    "watch": "npm run dev",
+    "start": "npm run dev",
+    "pdf": "node build.js pdf",
+    "help": "node build.js help"
+  },
+  "keywords": [
+    "latex",
+    "thesis",
+    "uninettuno",
+    "template",
+    "tesi",
+    "università"
+  ],
+  "author": "Riccardo Di Curti",
+  "license": "MIT",
+  "devDependencies": {
+    "nodemon": "^3.0.2"
+  },
+  "nodemonConfig": {
+    "ignore": [
+      "*.pdf",
+      "*.aux",
+      "*.log",
+      "*.out",
+      "*.toc",
+      "node_modules"
+    ],
+    "delay": 1000
+  }
+}

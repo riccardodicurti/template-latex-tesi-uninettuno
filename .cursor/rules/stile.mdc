@@ -1,0 +1,71 @@
+---
+description: Stile tesi triennale di Ingegneria Informatica — rigore scientifico, chiarezza e coerenza (compatibile con UNINETTUNO)
+globs:
+  - "**/*.tex"
+alwaysApply: true
+---
+
+# Scopo e compatibilità
+Applica uno stile di scrittura tecnico-scientifico “da 110 e lode”. **Non** modificare regole locali di impaginazione già definite (A4, margini, font, numerazione, sommario/indice ecc.). In caso di dubbio, prevalgono le regole UNINETTUNO e le regole di progetto esistenti.
+
+# Lingua e registro
+- **Italiano**; termini tecnici in inglese ammessi, **definiti alla prima occorrenza** (“… (d’ora in avanti *backpropagation*)”).
+- **Terza persona** (preferibilmente passiva): evitare “io/noi”.
+- **Tono accademico**: neutro, preciso, senza espressioni colloquiali o enfasi inutili.
+- **Concisione**: eliminare ridondanze; preferire frasi brevi ma complete.
+
+# Struttura di paragrafo (micro-struttura)
+Per ogni paragrafo:
+1) **Tema** (prima frase: cosa si dimostra/spiega).  
+2) **Evidenze** (dati, riferimenti, definizioni con `\cite{...}` quando non originali).  
+3) **Ragionamento** (collega evidenze → tesi).  
+4) **Mini-conclusione** (implicazione o transizione).
+
+# Argomentazione e citazioni
+- Tutto ciò che **non è originale o non è ovvio nel settore** va **citato** (`\cite{chiave}`) **prima del punto**.
+- Citazioni testuali: virgolette e pagina/e `\cite[p.~N]{chiave}`.
+- Coerenza con la bibliografia (thebibliography **oppure** BibTeX, non entrambi).  
+- Le figure/tabelle da fonti terze riportano **Fonte: \cite{...}** in didascalia o sotto-didascalia.
+
+# Matematica, simboli e unità
+- Notazione coerente; definire i simboli alla **prima occorrenza**.  
+- Numerare equazioni per sezione se previsto; richiamo nel testo come “equazione (X.Y)”.  
+- Unità **SI**; in italiano usare **virgola decimale** (es. 3,14), restando coerenti in tutto il documento.
+
+# Algoritmi, codice e standard
+- Algoritmi: descritti in prosa **+** pseudocodice/listings quando opportuno; spiegare complessità e risorse.  
+- Codice: blocchi minimi e leggibili; uso di font monospaziato; riferire nei capitoli principali solo gli estratti **significativi**.  
+- Software/dataset/standard sono **citati** con riferimenti bibliografici.
+
+# Figure e tabelle (forma)
+- Qualità adeguata, proporzioni rispettate; **centrare** gli elementi.  
+- Didascalia: **Figura X.Y:** Descrizione (in grassetto “Figura” e numeri).  
+- Ogni figura/tabella è **richiamata e discussa** nel testo (evitare “figura sotto”).
+
+# Esperimenti e valutazione
+- Descrivere **setup riproducibile**: dati, ambiente, parametri, versioni, semi casuali.  
+- Metriche: definire e motivare; riportare **incertezze**/intervalli quando rilevanti.  
+- Confronti: condizioni di pari confronto, limitazioni dichiarate.
+
+# Coerenza terminologica
+- Dizionario minimo: quando si introduce/aggiorna un termine, **propagare** la coerenza nel resto dei capitoli (titoli, rinvii, figure, testo).
+
+# Etica e originalità
+- Niente plagio; **parafrasi** con citazione; citazioni testuali con pagina/e e “traduzione nostra” se tradotte.  
+- Materiali coperti da copyright: usare solo con diritto/permesso e citazione della fonte.
+
+# Comportamento dell’Agent (vincoli forti)
+- **Modifica in-place**: aggiornare il blocco/§ richiesto nel relativo `chapters/*.tex`, **non** aggiungere sezioni in coda.
+- **Propagazione**: se il cambio impatta altre parti (termini, rinvii “cap. X”, label), **aggiornare** anche i file collegati.  
+- **Output = patch (diff) multi-file** + breve changelog; niente testi prolissi fuori diff.
+- **Citazioni**: se si introduce un fatto non originale, inserire `\cite{...}` e creare/aggiornare la voce in bibliografia (rispettando il sistema in uso).
+- In caso di informazione mancante **essenziale**, proporre un placeholder chiaro **TODO** (minimo indispensabile), evitando di bloccare l’editing.
+
+# Checklist qualità (sempre in coda all’output)
+- [ ] Terza persona; tono accademico; concisione.  
+- [ ] Paragrafi con tema → evidenze (con `\cite{}` se necessario) → ragionamento → mini-conclusione.  
+- [ ] Terminologia coerente e propagata.  
+- [ ] Figure/tabelle conformi e discusse nel testo; fonti indicate quando necessario.  
+- [ ] Matematica/metriche definite alla prima occorrenza; unità SI e formato numerico coerente.  
+- [ ] Citazioni corrette e presenti in bibliografia; nessun “undefined citation”.  
+- [ ] Patch **in-place** con diff multi-file; rinvii/ToC/label aggiornati.

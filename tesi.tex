@@ -1,0 +1,97 @@
+\documentclass[12pt,a4paper]{article}
+
+% Inclusione dei file di configurazione
+\input{config/packages}
+\input{config/layout}
+\input{config/metadata}
+
+% Inizio documento
+\begin{document}
+
+% Disattiva numerazione nelle pagine preliminari (titolo, dedica, abstract, indice)
+\pagenumbering{gobble}
+
+% Frontespizio personalizzato
+\begin{titlepage}
+    \centering
+    \includegraphics[width=0.5\textwidth]{assets/logo.png}\par\vspace{1cm}
+    {\scshape\LARGE \ateneo \par}
+    \vfill
+    {\Large \facolta \par}
+    \vspace{1cm}
+    {\large \corso \\ \par}
+    \vspace{1cm}
+    {\Large ELABORATO FINALE\\    in\\ \materia \par}
+    \vfill
+    {\LARGE\bfseries \titolo \par}
+    \vfill
+
+\noindent
+\begin{minipage}[t]{0.48\textwidth}
+    RELATORE\\\relatore
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.48\textwidth}
+    \raggedleft
+    CANDIDATO\\\candidato
+\end{minipage}
+         \vfill
+        \annoaccademico
+    
+\end{titlepage}
+
+% Dedica
+\clearpage
+\thispagestyle{empty}
+\vspace*{\fill}
+\begin{center}
+\itshape Dedica opzionale: inserisci qui la tua dedica personale.
+\end{center}
+\vspace*{\fill}
+\clearpage
+
+\newpage
+
+% Abstract
+\input{chapters/00-abstract}
+
+\newpage
+
+% Indice
+\tableofcontents
+
+\newpage
+
+% Capitoli
+% Attiva numerazione solo per i capitoli 1–9 e riparti da 1
+\pagenumbering{arabic}
+\setcounter{page}{1}
+\input{chapters/01-sommario}
+
+\input{chapters/02-introduzione}
+
+\input{chapters/03-statico}
+
+\input{chapters/04-target}
+
+\input{chapters/05-implementazione}
+
+\input{chapters/06-sperimentale}
+
+\input{chapters/07-conclusioni}
+
+% Ringraziamenti (prima della Bibliografia)
+\clearpage
+\thispagestyle{empty}
+\input{chapters/ringraziamenti}
+
+% Disattiva numerazione per Bibliografia e Appendici
+\clearpage
+\pagenumbering{gobble}
+\thispagestyle{empty}
+\input{chapters/08-bibliografia}
+
+\clearpage
+\input{chapters/appendici}
+
+\end{document}

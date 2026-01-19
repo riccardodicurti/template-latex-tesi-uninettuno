@@ -1,0 +1,28 @@
+---
+description: Citazioni corrette (stile numerico) e bibliografia coerente per tesi triennale in LaTeX
+globs:
+  - "**/*.tex"
+alwaysApply: true
+---
+
+# Obiettivo
+Assicurare che le citazioni nel testo (`\cite{...}`) siano corrette, posizionate in modo uniforme e collegate a riferimenti presenti in bibliografia, con stile numerico tipo IEEE. L’Agent deve validare e, se necessario, **creare/aggiornare** le voci bibliografiche mancanti.
+
+# Stile delle citazioni nel testo
+- Usa `\cite{chiave}` con stile **numerico** → formato **[n]**.
+- Posizionamento: la citazione va **immediatamente dopo** l’informazione a cui si riferisce, **prima del punto** (es. “... come mostrato in \cite{foo}.”).
+- Più fonti: `\cite{a,b,c}` — ordina le chiavi per rilevanza/ordine di comparsa.
+- Citazioni testuali: includi pagina/i → `\cite[p.~123]{foo}` o `\cite[pp.~10–12]{bar}`.
+- Figure/tabelle da fonti esterne: aggiungi **fonte** sotto la didascalia usando `\caption*{Fonte: \cite{chiave}}` (richiede `\usepackage{caption}`).
+
+# Scelta del sistema di bibliografia (una sola delle due, l’Agent auto-rileva)
+**A) thebibliography (attuale)**  
+- Mantieni `chapters/10-bibliografia.tex` con `\begin{thebibliography}{99}`.  
+- Ogni nuova citazione deve avere il relativo `\bibitem{chiave}` **creato/aggiornato**.  
+- Ordina i `\bibitem` **nell’ordine di prima comparsa** nel testo.
+  
+**B) BibTeX (consigliato)**  
+- Aggiungi in coda a `tesi.tex`:  
+  ```tex
+  \bibliographystyle{IEEEtran}
+  \bibliography{bibliografia}

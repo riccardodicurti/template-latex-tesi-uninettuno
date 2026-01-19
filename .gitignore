@@ -1,0 +1,24 @@
+# LaTeX temporary files
+*.aux
+*.log
+*.out
+*.toc
+*.fdb_latexmk
+*.fls
+*.synctex.gz
+
+# PDF output
+*.pdf
+
+# Node.js
+node_modules/
+npm-debug.log*
+
+# OS files
+.DS_Store
+Thumbs.db
+*~
+
+# Editor
+*.swp
+*.swo

@@ -1,0 +1,33 @@
+---
+description: Regole operative per la tesi LaTeX (comportamento Agent)
+globs:
+  - "**/*.tex"
+alwaysApply: true
+---
+
+## Obiettivo
+- Redigere tesi triennale in italiano; termini tecnici inglesi ammessi (definiti alla prima occorrenza).
+- Numerare solo i capitoli (Introduzione, capitoli introduttivi/principali, Conclusioni).
+- NON numerare: frontespizio, ringraziamenti, Indice (ToC), Sommario, Bibliografia, Appendici.
+- L’Agent modifica in-place i file esistenti e propaga la coerenza nel resto della tesi.
+
+## Stile
+- Italiano; terza persona; frasi chiare; termini inglesi tecnici definiti alla prima occorrenza.
+- Figure/tabelle citate nel testo; didascalie tipo "Figura X.Y:" Descrizione; riferimenti in stile [n] coerenti con Bibliografia.
+
+## Vincoli operativi
+- Niente aggiunte a fondo file: quando si aggiorna un contenuto, sovrascrivere la sezione/paragrafo corrispondente nel relativo `chapters/*.tex`.
+- Propagazione: se una modifica impatta altre sezioni (terminologia, rinvii, figure, etichette), aggiornare anche gli altri file interessati nella stessa risposta.
+- Restituire un unified diff per ciascun file toccato, con breve changelog.
+- Ricerca target: localizzare la sezione da modificare cercando titolo, label o ancore esistenti; se assenti, creare la sezione nel punto corretto dell’indice.
+- Coerenza: aggiornare ToC/cross-ref/label; mantenere nomenclatura coerente (prima occorrenza → definizione/alias italiano).
+- Aggiornare la bibliografia quando si introducono nuove `\cite{...}`.
+
+## Impaginazione e overfull
+- Non usare la modalità matematica `\(...\)` per parentesi o testo non numerico: usare parentesi testuali. Mantieni `\(...\)` solo per simboli/misure (es. `\le 0.8\\,\\mathrm{s}`).
+- Per nomi tecnici/monospazio lunghi, inserire punti di spezzatura: `Author\-izeSecurity\-Group\-Ingress` oppure `\allowbreak` tra componenti.
+- In tabelle larghe, usare colonne `p{..}` e consentire a capo (`\raggedright\arraybackslash`). Evitare colonne `l/c/r` quando i contenuti sono lunghi.
+
+## Coerenza Sommari IT/EN
+- Ogni modifica al Sommario in italiano deve essere apportata anche al Summary in inglese, mantenendo allineati contenuti, struttura e numeri.
+

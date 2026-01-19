@@ -1,0 +1,69 @@
+name: Compila LaTeX e Crea Release
+
+on:
+  push:
+    branches:
+      - main
+      - master
+    tags:
+      - 'v*'
+
+jobs:
+  build-latex:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      
+      - name: Compile LaTeX document
+        uses: xu-cheng/latex-action@v3
+        with:
+          root_file: tesi.tex
+          args: -pdf -interaction=nonstopmode -file-line-error
+      
+      - name: Rinomina PDF con timestamp
+        run: |
+          TIMESTAMP=$(date +'%Y%m%d-%H%M%S')
+          mv tesi.pdf tesi-${TIMESTAMP}.pdf
+          echo "PDF_NAME=tesi-${TIMESTAMP}.pdf" >> $GITHUB_ENV
+      
+      - name: Upload PDF come artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: tesi-pdf
+          path: ${{ env.PDF_NAME }}
+          retention-days: 90
+      
+      - name: Crea Release (solo per tag)
+        if: startsWith(github.ref, 'refs/tags/')
+        uses: softprops/action-gh-release@v1
+        with:
+          files: ${{ env.PDF_NAME }}
+          body: |
+            ## 📚 Tesi Compilata
+            
+            PDF generato automaticamente dalla versione ${{ github.ref_name }}
+            
+            **Data compilazione**: ${{ env.TIMESTAMP }}
+            **Commit**: ${{ github.sha }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      
+      - name: Crea Release automatica (push su main/master)
+        if: "!startsWith(github.ref, 'refs/tags/')"
+        uses: softprops/action-gh-release@v1
+        with:
+          tag_name: auto-${{ github.run_number }}
+          name: Build Automatica #${{ github.run_number }}
+          files: ${{ env.PDF_NAME }}
+          body: |
+            ## 🔄 Build Automatica
+            
+            PDF generato automaticamente dal push su ${{ github.ref_name }}
+            
+            **Commit**: ${{ github.sha }}
+            **Messaggio**: ${{ github.event.head_commit.message }}
+          prerelease: true
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

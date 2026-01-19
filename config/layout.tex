@@ -1,0 +1,30 @@
+% Configurazione margini (uniformi 2.5 cm)
+\geometry{top=2.5cm,bottom=2.5cm,left=2.5cm,right=2.5cm}
+
+% Correzione altezza intestazione per fancyhdr
+\setlength{\headheight}{14.5pt}
+
+% Intestazione e piè di pagina
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{\thepage}
+\lhead{\leftmark}
+
+% Forza il titolo dell'ambiente abstract in "Abstract" anche con lingua italiana
+\addto\captionsitalian{\renewcommand{\abstractname}{Abstract}}
+
+% Configurazione titoli
+\titleformat{\section}
+  {\normalfont\Large\bfseries}{\thesection}{1em}{}
+\titleformat{\subsection}
+  {\normalfont\large\bfseries}{\thesubsection}{1em}{}
+\titleformat{\subsubsection}
+  {\normalfont\normalsize\bfseries}{\thesubsubsection}{1em}{}
+
+% Spaziatura tra paragrafi
+\setlength{\parskip}{0.5em}
+\setlength{\parindent}{0pt}
+\emergencystretch=3em
+
+% Configurazione figure
+\captionsetup{font=small,labelfont=bf}

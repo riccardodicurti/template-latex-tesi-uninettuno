@@ -1,0 +1,83 @@
+\appendix
+
+\section{Appendice A: Codice Sorgente}
+
+\blindtext[1]
+
+\subsection{Esempio di Codice}
+
+Di seguito un esempio di codice sorgente:
+
+\begin{lstlisting}[language=Python, caption=Esempio di funzione Python]
+def esempio_funzione(parametro):
+    """
+    Questa e' una funzione di esempio.
+    
+    Args:
+        parametro: Descrizione del parametro
+        
+    Returns:
+        Risultato dell'elaborazione
+    """
+    risultato = parametro * 2
+    return risultato
+
+# Utilizzo della funzione
+valore = esempio_funzione(42)
+print(f"Risultato: {valore}")
+\end{lstlisting}
+
+\blindtext[1]
+
+\section{Appendice B: Dati Sperimentali}
+
+\blindtext[2]
+
+\subsection{Tabella dei Risultati}
+
+\begin{table}[H]
+\centering
+\caption{Esempio di tabella con risultati sperimentali}
+\label{tab:risultati-esempio}
+\begin{tabular}{@{}lcccc@{}}
+\toprule
+\textbf{Metrica} & \textbf{Test 1} & \textbf{Test 2} & \textbf{Test 3} & \textbf{Media} \\ 
+\midrule
+Performance (ms) & 120 & 115 & 118 & 117.7 \\
+Throughput (req/s) & 850 & 870 & 860 & 860.0 \\
+Error Rate (\%) & 0.1 & 0.2 & 0.1 & 0.13 \\
+CPU Usage (\%) & 45 & 48 & 46 & 46.3 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\blindtext[1]
+
+\section{Appendice C: Configurazioni}
+
+\blindtext[1]
+
+\subsection{File di Configurazione}
+
+\begin{lstlisting}[caption=Esempio di file di configurazione]
+{
+  "nome_progetto": "Template Demo",
+  "versione": "1.0.0",
+  "configurazione": {
+    "ambiente": "produzione",
+    "porta": 8080,
+    "database": {
+      "host": "localhost",
+      "porta": 5432,
+      "nome": "demo_db"
+    }
+  },
+  "features": {
+    "cache": true,
+    "logging": true,
+    "monitoring": true
+  }
+}
+\end{lstlisting}
+
+\blindtext[1]
